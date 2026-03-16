@@ -13,7 +13,7 @@ import utilities.ExcelUtility;
 
 public class ManageCategoryTest extends Base {
 
-	@Test
+	@Test(priority = 1, description = "User is able to submit Manage category")
 
 	public void verifiedUserIsAbleToSubmitManageCategory() throws IOException {
 		String username = ExcelUtility.getStringData(1, 0, "loginpage");
@@ -33,7 +33,7 @@ public class ManageCategoryTest extends Base {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,500)");
 		managecategorypage.clickOnSaveButton();
-		boolean successpage=managecategorypage.isSuccessMessageDisplayed();
+		boolean successpage = managecategorypage.isSuccessMessageDisplayed();
 		Assert.assertTrue(successpage);
 
 	}

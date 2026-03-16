@@ -11,9 +11,9 @@ import pages.ManageContactPage;
 import utilities.ExcelUtility;
 
 public class ManageContactTest extends LoginTest {
-	@Test
+	@Test(priority = 1, description = "User is able to submit Manage contact")
 
-	public void verifiedUserIsAbleToSubmitManageCategory() throws IOException {
+	public void verifiedUserIsAbleToSubmitManageContact() throws IOException {
 		String username = ExcelUtility.getStringData(1, 0, "loginpage");
 		String password = ExcelUtility.getStringData(1, 1, "loginpage");
 		LoginPage loginpage = new LoginPage(driver);

@@ -55,8 +55,8 @@ public class ManageCategoryPage {
 	public void clickOnSaveButton() {
 		savebutton.click();
 	}
-	public boolean isSuccessMessageDisplayed()
-	{
+
+	public boolean isSuccessMessageDisplayed() {
 		return successmessage.isDisplayed();
 	}
 }

@@ -10,55 +10,57 @@ import utilities.PageUtility;
 
 public class AdminUserPage {
 	public WebDriver driver;
-	@FindBy(xpath="//div[@style='background-color: !important;']//following::p[text()='Admin Users']//following::a[text()='More info '][1]")WebElement moreinfo;
-	@FindBy(xpath="//a[text()=' New']") WebElement newbutton;
-	@FindBy(xpath="//input[@id='username']") WebElement username;
-	@FindBy(xpath="//input[@id='password']")WebElement password;
-	@FindBy(xpath="//select[@name='user_type']")WebElement dropdown;
-	@FindBy(xpath="//button[@name='Create']")WebElement savebutton;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement successmessage;
-	
-	
-	public AdminUserPage(WebDriver driver) 
-	{
-	this.driver=driver;	
-	 PageFactory.initElements(driver, this);//used to intialize Webelement,driver-local class driver,this-current class driver
+	@FindBy(xpath = "//div[@style='background-color: !important;']//following::p[text()='Admin Users']//following::a[text()='More info '][1]")
+	WebElement moreinfo;
+	@FindBy(xpath = "//a[text()=' New']")
+	WebElement newbutton;
+	@FindBy(xpath = "//input[@id='username']")
+	WebElement username;
+	@FindBy(xpath = "//input[@id='password']")
+	WebElement password;
+	@FindBy(xpath = "//select[@name='user_type']")
+	WebElement dropdown;
+	@FindBy(xpath = "//button[@name='Create']")
+	WebElement savebutton;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	WebElement successmessage;
+
+	public AdminUserPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);// used to intialize Webelement,driver-local class driver,this-current
+												// class driver
 	}
 
-	public void clickOnMoreInfoButton()
-	{
+	public void clickOnMoreInfoButton() {
 		moreinfo.click();
 	}
-	
-	public void clickOnNewButton()
-	{
+
+	public void clickOnNewButton() {
 		newbutton.click();
 	}
-	
-	public void enterTheUsername(String name)
-	{
+
+	public void enterTheUsername(String name) {
 		username.sendKeys(name);
 	}
-	public void enterThePassword(String pwd)
-	{
+
+	public void enterThePassword(String pwd) {
 		password.sendKeys(pwd);
 	}
-	public void clickOnTheDropdown()
-	{
+
+	public void clickOnTheDropdown() {
 		dropdown.click();
 	}
-	public void dropDown()
-	{
+
+	public void dropDown() {
 		PageUtility pageutility = new PageUtility();
 		pageutility.dropDownSelectByIndex(dropdown, 2);
 	}
-	public void clickOnSaveButton()
-	{
+
+	public void clickOnSaveButton() {
 		savebutton.click();
 	}
-	
-	public boolean isSuccessMessageDisplayed()
-	{
+
+	public boolean isSuccessMessageDisplayed() {
 		return successmessage.isDisplayed();
 	}
 }
