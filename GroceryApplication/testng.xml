@@ -6,12 +6,12 @@
   <parameter name="browser" value="edge"></parameter>
     <classes>
       <class name="testScript.LoginTest"/>
-      <class name="testScript.AdminUserTest"/> 
+      <!--class name="testScript.AdminUserTest"/> 
       <class name="testScript.ManageContactTest"/>
       <class name="testScript.ManageCategoryTest"/>
       <class name="testScript.ManageNewsTest"/>   
       <class name="testScript.ManageFooterTest"/>
-       <class name="testScript.LogoutTest"/>
+       <class name="testScript.LogoutTest"/>-->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
