@@ -12,6 +12,8 @@ public class LogoutPage {
 	WebElement imageicon;
 	@FindBy(xpath = "//a[@class='dropdown-item'][2]")
 	WebElement logoutbutton;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	WebElement successmessage;
 
 	public LogoutPage(WebDriver driver) {
 		this.driver = driver;
@@ -25,6 +27,9 @@ public class LogoutPage {
 
 	public void clickOnTheLogoutButton() {
 		logoutbutton.click();
+	}
+	public boolean isSuccessMessageDisplayed() {
+		return successmessage.isDisplayed();
 	}
 
 }

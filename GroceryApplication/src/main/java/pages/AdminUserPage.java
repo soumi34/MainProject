@@ -10,8 +10,8 @@ import utilities.PageUtility;
 
 public class AdminUserPage {
 	public WebDriver driver;
-	@FindBy(xpath = "//div[@style='background-color: !important;']//following::p[text()='Admin Users']//following::a[text()='More info '][1]")
-	WebElement moreinfo;
+//	@FindBy(xpath = "//div[@style='background-color: !important;']//following::p[text()='Admin Users']//following::a[text()='More info '][1]")
+//	WebElement adminuserpagemoreinfo;
 	@FindBy(xpath = "//a[text()=' New']")
 	WebElement newbutton;
 	@FindBy(xpath = "//input[@id='username']")
@@ -31,33 +31,39 @@ public class AdminUserPage {
 												// class driver
 	}
 
-	public void clickOnMoreInfoButton() {
-		moreinfo.click();
-	}
+//	public AdminUserPage clickOnAdminUserPageMoreInfoButton() {
+//		adminuserpagemoreinfo.click();
+//	}
 
-	public void clickOnNewButton() {
+	public AdminUserPage clickOnNewButton() {
 		newbutton.click();
+		return this;
 	}
 
-	public void enterTheUsername(String name) {
+	public AdminUserPage enterTheUsername(String name) {
 		username.sendKeys(name);
+		return this;
 	}
 
-	public void enterThePassword(String pwd) {
+	public AdminUserPage enterThePassword(String pwd) {
 		password.sendKeys(pwd);
+		return this;
 	}
 
-	public void clickOnTheDropdown() {
+	public AdminUserPage clickOnTheDropdown() {
 		dropdown.click();
+		return this;
 	}
 
-	public void dropDown() {
+	public AdminUserPage dropDown() {
 		PageUtility pageutility = new PageUtility();
 		pageutility.dropDownSelectByIndex(dropdown, 2);
+		return this;
 	}
 
-	public void clickOnSaveButton() {
+	public AdminUserPage clickOnSaveButton() {
 		savebutton.click();
+		return this;
 	}
 
 	public boolean isSuccessMessageDisplayed() {

@@ -2,16 +2,19 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import constant.Constant;
+import utilities.FileUploadUtility;
 
 public class ManageCategoryPage {
 
 	public WebDriver driver;
+	FileUploadUtility fileuploadutility = new FileUploadUtility();
 	@FindBy(xpath = "//div[@class='small-box bg-info']//following::p[text()='Manage Category']//following::a[text()='More info '][1]")
-	WebElement moreinfo;
+	WebElement managecategorypagemoreinfo;
 	@FindBy(xpath = "//a[text()=' New']")
 	WebElement newbutton;
 	@FindBy(xpath = "//input[@placeholder='Enter the Category']")
@@ -30,30 +33,37 @@ public class ManageCategoryPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void clickOnMoreInfoButton() {
-		moreinfo.click();
-	}
+//	public void clickOnManageCategoryPageMoreInfoButton() {
+//		managecategorypagemoreinfo.click();
+//	}
 
-	public void clickOnNewButton() {
+	public ManageCategoryPage clickOnNewButton() {
 		newbutton.click();
+		return this;
 	}
 
-	public void enterTheCategory(String field) {
+	public ManageCategoryPage enterTheCategory(String field) {
 		category.sendKeys(field);
+		return this;
 	}
 
-	public void clickOnTheDiscountButton() {
+	public ManageCategoryPage clickOnTheDiscountButton() {
 		discountbutton.click();
+		return this;
 	}
 
-	public void clickOnTheFile(String file)
+	public ManageCategoryPage clickOnTheFile()
 
 	{
-		choosefile.sendKeys(file);
+		fileuploadutility.fileUploadUsingSendKeys(choosefile, Constant.IMAGE);
+		return this;
 	}
 
-	public void clickOnSaveButton() {
-		savebutton.click();
+	public ManageCategoryPage clickOnSaveButton() {
+		Actions a = new Actions(driver);
+		a.click(savebutton).build().perform();
+		// savebutton.click();
+		return this;
 	}
 
 	public boolean isSuccessMessageDisplayed() {

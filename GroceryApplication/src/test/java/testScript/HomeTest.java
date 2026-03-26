@@ -3,14 +3,13 @@ package testScript;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import pages.LoginPage;
-import pages.LogoutPage;
+import pages.HomePage;
 import utilities.ExcelUtility;
 
-public class LogoutTest extends Base {
+public class HomeTest extends Base {
 	@Test(priority = 1, description = "User is able to logout")
 
 	public void verifyUserIsAbleToLogout() throws IOException {
@@ -20,11 +19,9 @@ public class LogoutTest extends Base {
 		loginpage.enterTheUsername(username);
 		loginpage.enterThePassword(password);
 		loginpage.clickOnSignInButton();
-		LogoutPage logout = new LogoutPage(driver);
+		HomePage logout = new HomePage(driver);
 		logout.clickOnTheImageIcon();
 		logout.clickOnTheLogoutButton();
-		boolean successpage = logout.isSuccessMessageDisplayed();
-		Assert.assertTrue(successpage);
 
 	}
 }

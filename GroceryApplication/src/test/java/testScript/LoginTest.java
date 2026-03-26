@@ -5,19 +5,21 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
+	public HomePage homepage;
 	@Test(priority = 1, description = "Valid Credentials")
 
 	public void verifiedUserIsAbleToLoginWithValidCredential() throws IOException {
 		String username = ExcelUtility.getStringData(1, 0, "loginpage");
 		String password = ExcelUtility.getStringData(1, 1, "loginpage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterTheUsername(username);
-		loginpage.enterThePassword(password);
-		loginpage.clickOnSignInButton();
+		loginpage.enterTheUsername(username).enterThePassword(password);
+		//loginpage.enterThePassword(password);
+		homepage=loginpage.clickOnSignInButton();
 		boolean homepage = loginpage.isDashboardDisplayed();
 		Assert.assertTrue(homepage);
 	}
@@ -28,9 +30,9 @@ public class LoginTest extends Base {
 		String username = ExcelUtility.getStringData(2, 0, "loginpage");
 		String password = ExcelUtility.getStringData(2, 1, "loginpage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterTheUsername(username);
-		loginpage.enterThePassword(password);
-		loginpage.clickOnSignInButton();
+		loginpage.enterTheUsername(username).enterThePassword(password);
+		//loginpage.enterThePassword(password);
+		homepage=loginpage.clickOnSignInButton();
 		boolean hmpage = loginpage.isErrorMessageDisplayed();
 		Assert.assertTrue(hmpage);
 	}
@@ -41,9 +43,9 @@ public class LoginTest extends Base {
 		String username = ExcelUtility.getStringData(3, 0, "loginpage");
 		String password = ExcelUtility.getStringData(3, 1, "loginpage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterTheUsername(username);
-		loginpage.enterThePassword(password);
-		loginpage.clickOnSignInButton();
+		loginpage.enterTheUsername(username).enterThePassword(password);
+		//loginpage.enterThePassword(password);
+		homepage=loginpage.clickOnSignInButton();
 		boolean hmpage = loginpage.isErrorMessageDisplayed();
 		Assert.assertTrue(hmpage);
 	}
@@ -54,9 +56,9 @@ public class LoginTest extends Base {
 		String username = ExcelUtility.getStringData(4, 0, "loginpage");
 		String password = ExcelUtility.getStringData(4, 1, "loginpage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterTheUsername(username);
-		loginpage.enterThePassword(password);
-		loginpage.clickOnSignInButton();
+		loginpage.enterTheUsername(username).enterThePassword(password);
+		//loginpage.enterThePassword(password);
+		homepage=loginpage.clickOnSignInButton();
 		boolean hmpage = loginpage.isErrorMessageDisplayed();
 		Assert.assertTrue(hmpage);
 	}

@@ -24,16 +24,19 @@ public class LoginPage {
 												// class driver
 	}
 
-	public void enterTheUsername(String username) {
+	public LoginPage enterTheUsername(String username) {
 		usernamefield.sendKeys(username);
+		return this;
 	}
 
-	public void enterThePassword(String password) {
+	public LoginPage enterThePassword(String password) {
 		passwordfield.sendKeys(password);
+		return this;
 	}
 
-	public void clickOnSignInButton() {
+	public HomePage clickOnSignInButton() {
 		submit.click();
+		return new HomePage(driver);
 	}
 
 	public boolean isDashboardDisplayed() {
